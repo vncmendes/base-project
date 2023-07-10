@@ -1,0 +1,12 @@
+# docker run --name base-project -e POSTGRESQL_USERNAME=dockervnc -e POSTGRESQL_PASSWORD=dockervnc -e POSTGRESQL_DATABASE=baseproject -p 5432:5432  bitnami/postgresql
+
+version: '3'
+services:
+  base-project:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=dockervnc
+      - POSTGRESQL_PASSWORD=dockervnc
+      - POSTGRESQL_DATABASE=baseproject
