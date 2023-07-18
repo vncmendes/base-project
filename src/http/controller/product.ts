@@ -8,8 +8,8 @@ export async function createProduct(
 ) {
   const productBodySchema = z.object({
     name: z.string(),
-    amount: z.number(),
-    value: z.number(),
+    amount: z.string(),
+    value: z.string(),
     description: z.string(),
   });
 

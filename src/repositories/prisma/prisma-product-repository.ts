@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Prisma, Product } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { ProductsRepository } from "../products-repository";
 
 export class PrismaProductsRepository implements ProductsRepository {

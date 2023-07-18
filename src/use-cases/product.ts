@@ -1,10 +1,10 @@
-import { Prisma, Product } from "@prisma/client";
+import { Product } from "@prisma/client";
 import { ProductsRepository } from "@/repositories/products-repository";
 
 interface ProductUseCaseRequest {
   name: string;
-  amount: number;
-  value: number;
+  amount: string;
+  value: string;
   description: string;
 }
 
@@ -27,6 +27,7 @@ export class ProductUseCase {
       value,
       description,
     });
+    console.log(product);
 
     return {
       product,

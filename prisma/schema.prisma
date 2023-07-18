@@ -44,16 +44,13 @@ model Order {
 }
 
 model Order_Product {
-  id             String @id @default(uuid())
-  name           String
-  product_amount String
-
-  order_id   String
+  order_id     String @unique
   order      Order  @relation(fields: [order_id], references: [id])
-  product_id String
+
+  product_id   String @unique
   product    Product @relation(fields: [product_id], references: [id])
 
-  @@map("order-products")
+  @@map("orders-products")
 }
 
 model Product {
