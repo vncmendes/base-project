@@ -1,5 +1,5 @@
 import { Prisma, Order } from "@prisma/client";
 
 export interface OrdersRepository {
-  create(data: Prisma.OrderCreateInput): Promise<Order>;
+  create(data: Prisma.OrderUncheckedCreateInput): Promise<Order>;
 }

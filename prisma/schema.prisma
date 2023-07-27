@@ -16,7 +16,7 @@ enum Role {
 }
 
 model User {
-  id            String   @id @default(uuid())
+  user_id       String   @id @default(uuid())
   name          String
   email         String   @unique
   phone         String   @default("")
@@ -31,12 +31,15 @@ model User {
 }
 
 model Order {
-  id           String    @id @default(uuid())
+  order_id     String    @id @default(uuid())
+  order_number Int @default(autoincrement())
   created_at   DateTime  @default(now())
   validated_at DateTime?
+  product_name String
+  product_amount String
   
   user_id String
-  user User @relation(fields: [user_id], references: [id])
+  user User @relation(fields: [user_id], references: [user_id])
 
   order_product Order_Product[]
 
@@ -45,16 +48,16 @@ model Order {
 
 model Order_Product {
   order_id     String @unique
-  order      Order  @relation(fields: [order_id], references: [id])
+  order      Order  @relation(fields: [order_id], references: [order_id])
 
   product_id   String @unique
-  product    Product @relation(fields: [product_id], references: [id])
+  product    Product @relation(fields: [product_id], references: [product_id])
 
   @@map("orders-products")
 }
 
 model Product {
-  id          String  @id @default(uuid())
+  product_id  String  @id @default(uuid())
   name        String
   amount      String
   value       String
